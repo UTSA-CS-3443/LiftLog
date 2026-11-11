@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LiftLogApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LiftLogApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LiftLogApplication.class.getResource("XML Files/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("LiftLog");
         stage.setScene(scene);
