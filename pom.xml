@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>edu.utsa.cs3443.liftlog/edu.utsa.cs3443.liftlog.HelloApplication</mainClass>
+                            <mainClass>edu.utsa.cs3443.liftlog/edu.utsa.cs3443.liftlog.LiftLogApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
