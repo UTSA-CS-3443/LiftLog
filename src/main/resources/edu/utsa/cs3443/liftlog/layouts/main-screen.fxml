@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #121416;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.MainScreenController">
+<BorderPane fx:id="rootWindow" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #121416;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.MainScreenController">
    <left>
       <VBox prefHeight="750.0" prefWidth="200.0" style="-fx-background-color: #242424;" BorderPane.alignment="CENTER">
          <padding>
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Button fx:id="HomeButton" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Home" textFill="#b3b3b3" alignment="CENTER_LEFT">
+            <Button fx:id="HomeButton" onAction="#onHomeClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Home" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
@@ -36,7 +36,7 @@
                   </ImageView>
             </graphic>
             </Button>
-            <Button fx:id="AddWorkoutButton" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Add Workout" textFill="#b3b3b3" alignment="CENTER_LEFT">
+            <Button fx:id="AddWorkoutButton" onAction="#onHistoryClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Add Workout" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
