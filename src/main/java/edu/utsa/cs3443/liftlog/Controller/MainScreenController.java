@@ -24,7 +24,7 @@ public class MainScreenController {
     @FXML
     private void onHomeClick(){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/layouts/home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/Home.fxml"));
             Parent screen = loader.load();
             rootWindow.setCenter(screen);
         } catch (IOException e) {
@@ -34,7 +34,7 @@ public class MainScreenController {
     @FXML
     private void onHistoryClick(){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/layouts/history.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/History.fxml"));
             Parent screen = loader.load();
             rootWindow.setCenter(screen);
         } catch (IOException e) {
