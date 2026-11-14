@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -13,13 +14,13 @@ public class MainScreenController {
     @FXML
     private BorderPane rootWindow;
     @FXML
-    private Button HomeButton;
+    private ToggleButton HomeButton;
     @FXML
-    private Button AddWorkoutButton;
+    private ToggleButton AddWorkoutButton;
     @FXML
-    private Button HistoryButton;
+    private ToggleButton HistoryButton;
     @FXML
-    private Button SettingsButton;
+    private ToggleButton SettingsButton;
 
     @FXML
     private void onHomeClick(){
@@ -35,6 +36,26 @@ public class MainScreenController {
     private void onHistoryClick(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/History.fxml"));
+            Parent screen = loader.load();
+            rootWindow.setCenter(screen);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void onAddWorkoutClick(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/AddWorkout.fxml"));
+            Parent screen = loader.load();
+            rootWindow.setCenter(screen);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void onSettingsClick(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/Settings.fxml"));
             Parent screen = loader.load();
             rootWindow.setCenter(screen);
         } catch (IOException e) {

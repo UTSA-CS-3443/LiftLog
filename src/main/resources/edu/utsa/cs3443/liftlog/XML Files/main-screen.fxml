@@ -7,6 +7,9 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane fx:id="rootWindow" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #121416;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.MainScreenController">
+   <fx:define>
+      <ToggleGroup fx:id="menuButtons"/>
+   </fx:define>
    <left>
       <VBox prefHeight="750.0" prefWidth="200.0" style="-fx-background-color: #242424;" BorderPane.alignment="CENTER">
          <padding>
@@ -26,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Button fx:id="HomeButton" onAction="#onHomeClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Home" textFill="#b3b3b3" alignment="CENTER_LEFT">
+            <ToggleButton fx:id="HomeButton" toggleGroup="$menuButtons" onAction="#onHomeClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Home" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
@@ -35,8 +38,8 @@
                    <Image url="@../images/HomeLogo.png"/>
                   </ImageView>
             </graphic>
-            </Button>
-            <Button fx:id="AddWorkoutButton" onAction="#onHistoryClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Add Workout" textFill="#b3b3b3" alignment="CENTER_LEFT">
+            </ToggleButton>
+            <ToggleButton fx:id="AddWorkoutButton" toggleGroup="$menuButtons" onAction="#onAddWorkoutClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Add Workout" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
@@ -45,8 +48,8 @@
                      <Image url="@../images/AddWorkoutLogo.png"/>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="HistoryButton" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Workout History" textFill="b3b3b3" alignment="CENTER_LEFT">
+            </ToggleButton>
+            <ToggleButton fx:id="HistoryButton" toggleGroup="$menuButtons" onAction="#onHistoryClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Workout History" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
@@ -55,8 +58,8 @@
                      <Image url="@../images/HistoryLogo.png"/>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="SettingsButton" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Settings" textFill="#b3b3b3" alignment="CENTER_LEFT">
+            </ToggleButton>
+            <ToggleButton fx:id="SettingsButton" toggleGroup="$menuButtons" onAction="#onSettingsClick" prefHeight="15" prefWidth="140" style="-fx-background-color: #333333;-fx-background-radius: 5;" mnemonicParsing="false" text="Settings" textFill="#b3b3b3" alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets top="5" bottom="5"/>
                </VBox.margin>
@@ -65,7 +68,7 @@
                      <Image url="@../images/SettingsLogo.png"/>
                   </ImageView>
                </graphic>
-            </Button>
+            </ToggleButton>
          </children></VBox>
    </left>
 </BorderPane>
