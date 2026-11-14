@@ -3,6 +3,7 @@ package edu.utsa.cs3443.liftlog.model;
 /**
  * Exercise class will represent a single exercise in a workout
  * will be used as a collection in workout class
+ * @author dgasp24
  * @author BroFreeman
  */
 public class Exercise {
@@ -66,4 +67,5 @@ public class Exercise {
      */
     public void setWeight(double weight) {this.weight = weight;}
 
+    //should probably have an method to add exercise
 }
