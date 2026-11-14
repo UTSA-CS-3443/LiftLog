@@ -67,5 +67,4 @@ public class Exercise {
      */
     public void setWeight(double weight) {this.weight = weight;}
 
-    //should probably have an method to add exercise
 }

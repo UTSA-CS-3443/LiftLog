@@ -68,4 +68,11 @@ public class Workout {
      * @param exercises, arraylist
      */
     public void setExercises(ArrayList<Exercise> exercises) {this.exercises = exercises;}
+
+    /**
+     * adds a single exercise to the list
+     * @param exercise, exercises
+     * since workout is a list of exercises will be useful to have
+     */
+    public void addExercise(Exercise exercise) { exercises.add(exercise); }
 }
