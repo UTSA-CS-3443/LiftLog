@@ -1,0 +1,17 @@
+workoutid,date,workoutName,exercise,sets,reps,weight
+1,09/05/2026,Lower Body,Barbell Squat,3,0,115
+1,09/05/2026,Lower Body,RDL,3,10,105
+1,09/05/2026,Lower Body,Lunges,4,12,40
+1,09/05/2026,Lower Body,Calf Raises,3,15,120
+2,09/07/2026,Upper Body,Bench Press,3,8,135
+2,09/07/2026,Upper Body,Bicep Curl,3,10,40
+2,09/07/2026,Upper Body,Barbell Row,3,8,125
+3,09/10/2026,Leg Day,Squats,3,8,135
+3,09/10/2026,Leg Day,Leg Press,3,10,180
+3,09/10/2026,Leg Day,Calf Raises,3,12,130
+4,09/12/2026,Pull Day,Lat Pulldown,3,8,135
+4,09/12/2026,Pull Day,Barbell Row,3,10,120
+4,09/12/2026,Pull Day,Bicep Curl,3,12,40
+5,09/14/2026,Push Day,Bench Press,3,8,135
+5,09/14/2026,Push Day,Shoulder Press,3,10,40
+5,09/14/2026,Push Day,Tricep Pushdown,3,12,50
