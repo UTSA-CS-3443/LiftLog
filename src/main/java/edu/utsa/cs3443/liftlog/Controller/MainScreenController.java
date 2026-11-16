@@ -22,44 +22,40 @@ public class MainScreenController {
     @FXML
     private ToggleButton SettingsButton;
 
+
     @FXML
-    private void onHomeClick(){
+    public void loadScene(String fileLocation){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileLocation));
             Parent screen = loader.load();
             rootWindow.setCenter(screen);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    //Loads the home screen first when you open the program
+    @FXML
+    public void initialize(){
+        loadScene("/edu/utsa/cs3443/liftlog/XML Files/Home.fxml");
+    }
+
+    @FXML
+    private void onHomeClick(){
+        loadScene("/edu/utsa/cs3443/liftlog/XML Files/Home.fxml");
+    }
+
     @FXML
     private void onHistoryClick(){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/History.fxml"));
-            Parent screen = loader.load();
-            rootWindow.setCenter(screen);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+      loadScene("/edu/utsa/cs3443/liftlog/XML Files/History.fxml");
     }
     @FXML
     private void onAddWorkoutClick(){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/AddWorkout.fxml"));
-            Parent screen = loader.load();
-            rootWindow.setCenter(screen);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+       loadScene("/edu/utsa/cs3443/liftlog/XML Files/AddWorkout.fxml");
     }
+
     @FXML
     private void onSettingsClick(){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/Settings.fxml"));
-            Parent screen = loader.load();
-            rootWindow.setCenter(screen);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        loadScene("/edu/utsa/cs3443/liftlog/XML Files/Settings.fxml");
     }
 }
