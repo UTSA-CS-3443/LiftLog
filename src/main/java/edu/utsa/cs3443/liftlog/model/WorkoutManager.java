@@ -4,7 +4,6 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  * WorkoutManager is a collection of workouts
@@ -31,21 +30,34 @@ public class WorkoutManager {
      */
     public ArrayList<Workout> getWorkouts() { return workouts; }
 
-    //loadWorkouts() still working on it
-    /*public void loadWorkouts() throws IOException {
+    private Workout findWorkout(String id){
+        for (Workout workout : workouts) {
+            if (id.equals(workout.getworkoutid())){
+                return workout;
+            }
+        }
+        return null;
+    }
+    
+    public void loadWorkouts() throws IOException {
         try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String firstLine = reader.readLine();
             String line;
             while ((line = reader.readLine()) != null) {
                 Workout workout = convertLineToWorkout(line);
-                workouts.add(workout);
+                Workout current = findWorkout(workout.getworkoutid());
+                if (current != null){
+                    current.addExercise(workout.getExercises().get(0));
+                }else{
+                    workouts.add(workout);
+                }
             }
         }catch(FileNotFoundException e) {
             throw new IOException("Workout file not found");
         }catch(IOException e) {
             throw new IOException("Error reading Workout file");
         }
-    }*/
+    }
 
     private Workout convertLineToWorkout(String line){
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -64,8 +76,9 @@ public class WorkoutManager {
         return workout;
     }
     private String convertToLine(Workout workout, Exercise exercise) {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String comma = ",";
-        String line = workout.getworkoutid() + comma + workout.getDate() + comma +
+        String line = workout.getworkoutid() + comma + workout.getDate().format(dateFormat) + comma +
                 workout.getWorkoutName() + comma + exercise.getName() + comma +
                 exercise.getSets() + comma + exercise.getReps() +
                 comma + exercise.getWeight();
