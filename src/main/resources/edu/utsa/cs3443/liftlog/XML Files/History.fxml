@@ -4,24 +4,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.HomeController">
-   <children>
-      <VBox alignment="CENTER" prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: #121416;">
-         <children>
-            <VBox prefHeight="223.0" prefWidth="900.0">
-               <children>
-                  <Label text="Workout History" textFill="#b3b3b3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="View, edit and delete past workouts." textFill="#b3b3b3" />
-               </children></VBox>
-            <VBox prefHeight="561.0" prefWidth="900.0">
-               <children>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-   </children>
-</AnchorPane>
+<?import javafx.geometry.Insets?>
+
+<VBox prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #121416;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.HistoryController">
+<padding>
+   <Insets top="40.0" left="35.0" right="35.0" bottom="20.0" />
+</padding>
+<children>
+   <VBox >
+      <children>
+         <Label text="Workout History" textFill="#b3b3b3">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
+         <Label text="View, edit and delete past workouts." textFill="#b3b3b3" />
+      </children>
+   </VBox>
+   <ListView fx:id="HistoryList" VBox.vgrow="ALWAYS" style="-fx-background-color: #121416; -fx-control-inner-background: #121416; -fx-control-inner-background-alt: #121416;">
+      <padding>
+         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+      </padding></ListView>
+</children>
+</VBox>
