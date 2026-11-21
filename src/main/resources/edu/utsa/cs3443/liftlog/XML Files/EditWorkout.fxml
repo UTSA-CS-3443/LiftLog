@@ -22,7 +22,7 @@
             <Insets top="24" right="24" bottom="24" left="24" />
         </padding>
 
-        <Label text="Add New Workout" style="-fx-font-size: 28px;" />
+        <Label text="Edit Workout" style="-fx-font-size: 28px;" />
 
         <HBox alignment="CENTER_LEFT" spacing="16">
             <Label text="Workout Name" minWidth="110" />
