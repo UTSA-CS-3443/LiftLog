@@ -1,0 +1,105 @@
+.add-workout {
+    -fx-background-color: #121416;
+}
+
+.add-workout .label {
+    -fx-text-fill: #f2f3f4;
+    -fx-font-weight: bold;
+}
+
+.add-workout .text-field,
+.add-workout .date-picker {
+    -fx-background-color: #272d33;
+    -fx-background-radius: 7;
+    -fx-border-color: #383f46;
+    -fx-border-radius: 7;
+    -fx-text-fill: #f2f3f4;
+    -fx-prompt-text-fill: #a0a6ac;
+}
+
+.add-workout .text-field {
+    -fx-padding: 9 12;
+}
+
+.add-workout .date-picker > .text-field {
+    -fx-border-color: transparent;
+}
+
+.add-workout .date-picker > .arrow-button {
+    -fx-background-color: #272d33;
+    -fx-background-radius: 0 7 7 0;
+}
+
+.add-workout .date-picker > .arrow-button > .arrow {
+    -fx-background-color: #a0a6ac;
+}
+
+.add-workout .button {
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 9 16;
+    -fx-cursor: hand;
+}
+
+.add-workout .save-button {
+    -fx-background-color: #22c55e;
+    -fx-text-fill: #101713;
+}
+
+.add-workout .add-exercise-button,
+.add-workout .cancel-button {
+    -fx-background-color: transparent;
+}
+
+.add-workout .add-exercise-button {
+    -fx-border-color: #22c55e;
+    -fx-text-fill: #22c55e;
+}
+
+.add-workout .cancel-button {
+    -fx-border-color: #777d83;
+    -fx-text-fill: #d5d7da;
+}
+
+.add-workout .remove-exercise-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff6b6b;
+}
+
+.add-workout .exercise-rows {
+    -fx-background-color: #202427;
+    -fx-background-radius: 8;
+    -fx-border-color: #454b50;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+    -fx-spacing: 8;
+}
+
+.add-workout .exercise-header {
+    -fx-padding: 2 0 8 0;
+    -fx-border-color: transparent transparent #454b50 transparent;
+}
+
+.add-workout .exercise-header .label {
+    -fx-text-fill: #aeb4ba;
+    -fx-font-size: 11px;
+}
+
+.add-workout .exercise-count {
+    -fx-min-width: 76px;
+    -fx-pref-width: 76px;
+    -fx-max-width: 76px;
+}
+
+.add-workout .exercise-weight {
+    -fx-min-width: 128px;
+    -fx-pref-width: 128px;
+    -fx-max-width: 128px;
+}
+
+.add-workout .exercise-remove {
+    -fx-min-width: 80px;
+    -fx-pref-width: 80px;
+    -fx-max-width: 80px;
+}

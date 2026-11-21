@@ -1,15 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.liftlog.Controller.AddWorkoutController">
-   <children>
-      <VBox alignment="CENTER" prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: #121416;">
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD NEW WORKOUT SCREEN!" />
-         </children>
+<AnchorPane prefHeight="400.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.liftlog.Controller.AddWorkoutController"
+            stylesheets="@add-workout.css"
+            styleClass="add-workout">
+
+   <VBox spacing="16" AnchorPane.topAnchor="0.0"
+         AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <padding>
+         <Insets top="24" right="24" bottom="24" left="24" />
+      </padding>
+
+      <Label text="Add New Workout" style="-fx-font-size: 28px;" />
+
+      <HBox alignment="CENTER_LEFT" spacing="16">
+         <Label text="Workout Name" minWidth="110" />
+         <TextField fx:id="workoutNameField" promptText="e.g. Push Day"
+                    HBox.hgrow="ALWAYS" />
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" spacing="16">
+         <Label text="Date" minWidth="110" />
+         <DatePicker fx:id="workoutDatePicker" promptText="Select a date"
+                     prefWidth="190" />
+      </HBox>
+
+      <Label text="Exercises" />
+
+      <VBox styleClass="exercise-rows">
+         <HBox alignment="CENTER_LEFT" spacing="8" styleClass="exercise-header">
+            <Label text="EXERCISE" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+            <Label text="SETS" styleClass="exercise-count" />
+            <Label text="REPS" styleClass="exercise-count" />
+            <Label text="WEIGHT (LBS)" styleClass="exercise-weight" />
+            <Label styleClass="exercise-remove" />
+         </HBox>
+
+         <VBox fx:id="exerciseRows" spacing="8" />
       </VBox>
-   </children>
+
+      <Button mnemonicParsing="false" text="+ Add Exercise"
+              onAction="#handleAddExercise" styleClass="add-exercise-button" />
+
+      <HBox spacing="16">
+         <Button mnemonicParsing="false" text="Cancel"
+                 styleClass="cancel-button" />
+         <Button mnemonicParsing="false" text="Save Workout"
+                 onAction="#handleSaveWorkout" styleClass="save-button" />
+      </HBox>
+   </VBox>
 </AnchorPane>
