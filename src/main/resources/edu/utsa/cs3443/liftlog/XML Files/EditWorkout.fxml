@@ -10,5 +10,6 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.utsa.cs3443.liftlog.Controller.EditWorkoutController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <Label text="Edit Workout Screen" textFill="#b3b3b3">
+    </Label>
 </AnchorPane>

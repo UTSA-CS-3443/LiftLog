@@ -5,16 +5,24 @@ import edu.utsa.cs3443.liftlog.model.WorkoutManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
@@ -77,8 +85,14 @@ public class HistoryController {
             editButton.setStyle("-fx-background-color: #121416; -fx-text-fill: #FFFFFF;");
             deleteButton.setStyle("-fx-background-color: #C61A1A; -fx-text-fill: #FFFFFF;");
 
-            //add editButton.setOnAction()
-            //add deleteButton.setOnAction()
+            deleteButton.setOnAction(e -> {
+                Workout selectedWorkout = getItem();
+                if (selectedWorkout != null) {
+                    deleteConfirmation(selectedWorkout);
+                }
+            });
+
+            editButton.setOnAction(e -> { editScreen();});
         }
 
             @Override
@@ -96,6 +110,48 @@ public class HistoryController {
                 setGraphic(row);
             }
 
+    }
+    private void deleteConfirmation(Workout workout) {
+        Stage deleteStage = new Stage();
+        deleteStage.initOwner(HistoryList.getScene().getWindow());
+        deleteStage.initModality(Modality.WINDOW_MODAL);
+        deleteStage.initStyle(StageStyle.TRANSPARENT);
+
+        final Button cancelButton = new Button("Cancel");
+        final Button confirmDelete = new Button("Delete");
+
+        HBox buttons = new HBox(10, cancelButton, confirmDelete);
+        VBox box = new VBox(15, buttons);
+        box.setPadding(new Insets(20));
+        box.setStyle("-fx-background-color: #242424;");
+
+        cancelButton.setOnAction(e -> deleteStage.close());
+        confirmDelete.setOnAction(e -> {
+            try {
+                manager.deleteWorkout(workout.getworkoutid());
+                history.remove(workout);
+            }catch(IOException e1) {
+                System.out.println("Error deleting workout " + e1.getMessage());
+            }
+            deleteStage.close();
+        });
+
+        Scene scene = new Scene(box);
+        scene.setFill(Color.TRANSPARENT);
+        deleteStage.setScene(scene);
+        deleteStage.showAndWait();
+    }
+
+    private void editScreen(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/EditWorkout.fxml"));
+            Parent screen = loader.load();
+            BorderPane root = (BorderPane) HistoryList.getScene().getRoot();
+            root.setCenter(screen);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+
 }
 
