@@ -5,11 +5,15 @@ import java.util.Locale;
 
 public class Utilities {
 
-    public String getDate(){
-        LocalDate today = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+    public String getDate() {
+        return formatDate(LocalDate.now());
+    }
 
-        return today.format(formatter);
+    public String formatDate(LocalDate date) {
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("MMM. d, yyyy", Locale.ENGLISH);
+
+        return date.format(formatter);
     }
 
     //POTENTIAL AREA FOR CONVERTING POUNDS TO KILOS// KILOS TO POUNDS???
