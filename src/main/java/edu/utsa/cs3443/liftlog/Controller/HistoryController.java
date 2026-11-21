@@ -5,8 +5,10 @@ import edu.utsa.cs3443.liftlog.model.WorkoutManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -83,14 +85,14 @@ public class HistoryController {
             editButton.setStyle("-fx-background-color: #121416; -fx-text-fill: #FFFFFF;");
             deleteButton.setStyle("-fx-background-color: #C61A1A; -fx-text-fill: #FFFFFF;");
 
-            //add editButton.setOnAction()
-            //add deleteButton.setOnAction()
             deleteButton.setOnAction(e -> {
                 Workout selectedWorkout = getItem();
                 if (selectedWorkout != null) {
                     deleteConfirmation(selectedWorkout);
                 }
             });
+
+            editButton.setOnAction(e -> { editScreen();});
         }
 
             @Override
@@ -139,5 +141,17 @@ public class HistoryController {
         deleteStage.setScene(scene);
         deleteStage.showAndWait();
     }
+
+    private void editScreen(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/liftlog/XML Files/EditWorkout.fxml"));
+            Parent screen = loader.load();
+            BorderPane root = (BorderPane) HistoryList.getScene().getRoot();
+            root.setCenter(screen);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
 
