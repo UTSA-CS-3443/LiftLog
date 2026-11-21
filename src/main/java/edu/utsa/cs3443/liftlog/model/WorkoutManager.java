@@ -4,6 +4,9 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 /**
  * WorkoutManager is a collection of workouts
@@ -86,15 +89,35 @@ public class WorkoutManager {
     }
 
     public void saveWorkouts() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))){
-            writer.println("workoutid,date,workoutName,exercise,sets,reps,weight");
-            for (Workout workout : workouts) {
-                for (Exercise exercise : workout.getExercises()) {
-                    writer.println(convertToLine(workout, exercise));
+        try {
+            saveWorkoutsOrThrow();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void saveWorkoutsOrThrow() throws IOException {
+        Path destination = Path.of(fileName).toAbsolutePath();
+        Path temporaryFile = Files.createTempFile(
+                destination.getParent(), "workouts-", ".tmp");
+
+        try {
+            try (BufferedWriter writer = Files.newBufferedWriter(temporaryFile)) {
+                writer.write("workoutid,date,workoutName,exercise,sets,reps,weight");
+                writer.newLine();
+
+                for (Workout workout : workouts) {
+                    for (Exercise exercise : workout.getExercises()) {
+                        writer.write(convertToLine(workout, exercise));
+                        writer.newLine();
+                    }
                 }
             }
-        }catch (IOException e){
-            System.out.println(e.getMessage());
+
+            Files.move(temporaryFile, destination, StandardCopyOption.ATOMIC_MOVE,
+                    StandardCopyOption.REPLACE_EXISTING);
+        } finally {
+            Files.deleteIfExists(temporaryFile);
         }
     }
 
